@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-
-const Country = ({ country, getCountry, countries }) => {
+import Loading from "./Loading";
+const Country = ({ country, getCountry, countries, loading, setLoading }) => {
   const { countryName } = useParams();
   const objects = {};
   const langus = Object.values(
@@ -19,8 +19,10 @@ const Country = ({ country, getCountry, countries }) => {
   useEffect(() => {
     getCountry(countryName);
   }, [countryName]);
-
-  return (
+  console.log({ loading, countryName });
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="lg:px-20 sm:px-15 px-8 py-5 h-full sm:h-screen bg-white dark:bg-background-blue shadow-4xl">
       <NavLink to="/">
         <button className="outline-white dark:bg-my-blue border-white bg-white rounded-md w-20 shadow-5xl">
@@ -50,7 +52,8 @@ const Country = ({ country, getCountry, countries }) => {
               <p className="pb-2 font-medium">
                 Population:{" "}
                 <span className="font-light">
-                  {country?.population?.toString()
+                  {country?.population
+                    ?.toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
               </p>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-const Countries = ({ countries }) => {
+import Loading from "./Loading";
+const Countries = ({ countries, loading }) => {
   const [val, setVal] = useState("");
   const [region, setRegion] = useState("Filter By Region");
   const [countriesList, setCountriesList] = useState(countries);
@@ -23,7 +24,9 @@ const Countries = ({ countries }) => {
       : setCountriesList(filteredRegion);
   }, [countries, region]);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="lg:px-20 sm:px-15 px-5 py-5">
       <div className="lg:flex tablet:flex justify-between items-center mt-8 ">
         <div className="flex items-center dark:bg-my-blue bg-white w-auto px-4 h-9 text-gray-400 mb-3 tablet:mb-0">

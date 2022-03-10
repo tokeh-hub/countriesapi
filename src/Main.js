@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Countries from "./Countries";
 import Country from "./Country";
 const Main = ({
@@ -12,6 +8,8 @@ const Main = ({
   country,
   getCountry,
   setCountries,
+  loading,
+  setLoading,
 }) => {
   return (
     <Router>
@@ -24,21 +22,12 @@ const Main = ({
               countries={countries}
               setValue={setValue}
               value={value}
+              loading={loading}
+              setLoading={setLoading}
             />
           }
         />
-        <Route
-          exact
-          path="/countries"
-          element={
-            <Countries
-              countries={countries}
-              setValue={setValue}
-              value={value}
-              setCountries={setCountries}
-            />
-          }
-        />
+
         <Route
           exact
           path="/country/:countryName"
@@ -49,6 +38,8 @@ const Main = ({
               getCountry={getCountry}
               setValue={setValue}
               value={value}
+              loading={loading}
+              setLoading={setLoading}
             />
           }
         />
