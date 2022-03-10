@@ -42,7 +42,7 @@ const Countries = ({ countries, loading }) => {
         <select
           value={region}
           onChange={(e) => setRegion(e.target.value)}
-          className="dark:bg-my-blue text-sm text-gray-400 rounded-sm outline-none px-4 h-9 w-100"
+          className="dark:bg-my-blue dark:text-white text-sm text-gray-400 rounded-sm outline-none px-4 h-9 w-100"
         >
           <option value="Filter By Region">Filter By Region</option>
           {regions.map((region) => (

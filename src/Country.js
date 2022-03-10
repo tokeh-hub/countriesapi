@@ -95,7 +95,7 @@ const Country = ({ country, getCountry, countries, loading}) => {
               <p className="font-medium pb-2 sm:pb-0">
                 Border Countries:&nbsp;
               </p>
-              <div className="flex">
+              <div className="flex flex-wrap">
                 {country?.borders?.map((border) => {
                   var foundCountry = border;
                   var countryName = objects[foundCountry];
