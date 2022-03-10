@@ -1,8 +1,7 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  NavLink,
+  Route
 } from "react-router-dom";
 import Countries from "./Countries";
 import Country from "./Country";
