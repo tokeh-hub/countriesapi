@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Header from "./Header";
+import Main from "./Main";
+import axios from "axios";
 
 function App() {
+  const [darkTheme, setDarkTheme] = useState(false);
+  const [country, setCountry] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const getCountry = async (countryName) => {
+    const { data } = await axios.get(
+      `https://restcountries.com/v3.1/name/${countryName}`
+    );
+    setCountry(data[0]);
+  };
+
+  const getRegions = async () => {
+    const { data } = await axios.get(
+      `https://restcountries.com/v2/all?fields=name,capital,flag,population,region,cioc`
+    );
+    setCountries(data);
+  };
+
+  useEffect(() => {
+    getRegions();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkTheme ? "dark" : ""}>
+      <div className="w-screen h-full mx-auto font-Nunito bg-gray-200 dark:bg-background-blue dark:text-white">
+        <Header setDarkTheme={setDarkTheme} darkTheme={darkTheme} />
+        <Main countries={countries} getCountry={getCountry} country={country} />
+      </div>
     </div>
   );
 }
