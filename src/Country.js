@@ -100,7 +100,7 @@ const Country = ({ country, getCountry, countries, loading}) => {
                   var foundCountry = border;
                   var countryName = objects[foundCountry];
                   return (
-                    <span className="outline-white font-light border-white dark:bg-my-blue bg-white rounded-sm w-auto shadow-5xl flex justify-between items-center mr-2 text-sm px-2">
+                    <span className="outline-white my-2 sm:my-0 font-light border-white dark:bg-my-blue bg-white rounded-sm w-auto shadow-5xl flex justify-between items-center mr-2 text-sm px-2">
                       {countryName}
                     </span>
                   );
