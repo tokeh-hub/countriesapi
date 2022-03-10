@@ -1,7 +1,7 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import Countries from "./Countries";
 import Country from "./Country";

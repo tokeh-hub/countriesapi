@@ -50,8 +50,7 @@ const Country = ({ country, getCountry, countries }) => {
               <p className="pb-2 font-medium">
                 Population:{" "}
                 <span className="font-light">
-                  {country?.population
-                    .toString()
+                  {country?.population?.toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
               </p>
