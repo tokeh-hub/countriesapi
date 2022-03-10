@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
-const Country = ({ country, getCountry, countries, loading, setLoading }) => {
+const Country = ({ country, getCountry, countries, loading}) => {
+  console.log(country ? country : '')
   const { countryName } = useParams();
   const objects = {};
   const langus = Object.values(
@@ -12,8 +13,8 @@ const Country = ({ country, getCountry, countries, loading, setLoading }) => {
     country?.currencies ? country.currencies : ""
   )[0];
 
-  countries?.map(({ cioc, name }) => {
-    return (objects[cioc ? cioc : ""] = name);
+  countries?.map(({ alpha3Code, name }) => {
+    return (objects[alpha3Code ? alpha3Code : ""] = name);
   });
   /* eslint-disable */
   useEffect(() => {

@@ -21,7 +21,7 @@ function App() {
   const getRegions = async () => {
     setLoading(true);
     const { data } = await axios.get(
-      `https://restcountries.com/v2/all?fields=name,capital,flag,population,region,cioc`
+      `https://restcountries.com/v2/all`
     );
     setCountries(data);
     setLoading(false);
