@@ -3,7 +3,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
 const Countries = ({ countries, loading }) => {
-    console.log(countries ? countries : '')
   const [val, setVal] = useState("");
   const [region, setRegion] = useState("Filter By Region");
   const [countriesList, setCountriesList] = useState(countries);

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
 const Country = ({ country, getCountry, countries, loading}) => {
-  console.log(country ? country : '')
+ 
   const { countryName } = useParams();
   const objects = {};
   const langus = Object.values(
@@ -20,7 +20,7 @@ const Country = ({ country, getCountry, countries, loading}) => {
   useEffect(() => {
     getCountry(countryName);
   }, [countryName]);
-  console.log({ loading, countryName });
+ 
   return loading ? (
     <Loading />
   ) : (
