@@ -54,7 +54,7 @@ const Countries = ({ countries, loading }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8">
         {countriesList?.map(({ flag, name, population, capital, region }) => (
           <NavLink to={`/country/${name.toLowerCase()}`}>
-            <div className="card dark:bg-my-blue border-transparent mx-5">
+            <div className="card dark:bg-my-blue border-transparent mx-5 mb-10">
               <img
                 src={flag}
                 className="image object-cover rounded-t-md"
