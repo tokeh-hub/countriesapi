@@ -60,12 +60,12 @@ const Countries = ({ countries, loading }) => {
                 className="image object-cover rounded-t-md"
                 alt={name}
               ></img>
-              <div className="h-1/2 text-sm pb-5 pl-8 bg-white dark:bg-my-blue rounded-md">
-                <p className="pb-3 pt-3 font-bold text-sm">{name}</p>
-                <p className="font-medium">
+              <div className="h-1/2 text-sm py-5 pl-8 bg-white dark:bg-my-blue rounded-md">
+                <p className="pb-3 pt-3 font-bold text-xl">{name}</p>
+                <p className="font-medium pb-3">
                   Population: <span className="font-light">{population}</span>
                 </p>
-                <p className="font-medium">
+                <p className="font-medium  pb-3">
                   Region: <span className="font-light">{region}</span>
                 </p>
                 <p className="font-medium">
