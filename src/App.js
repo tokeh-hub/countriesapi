@@ -12,7 +12,7 @@ function App() {
   const getCountry = async (countryName) => {
     setLoading(true);
     const { data } = await axios.get(
-      `https://restcountries.com/v3.1/name/${countryName}`
+      `https://restcountries.com/v2/name/${countryName}`
     );
     setCountry(data[0]);
     setLoading(false);

@@ -3,19 +3,21 @@ import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Loading from "./Loading";
 const Country = ({ country, getCountry, countries, loading}) => {
- 
   const { countryName } = useParams();
   const objects = {};
-  const langus = Object.values(
-    country?.languages ? country.languages : ""
-  ).join(",");
-  const currency = Object.keys(
-    country?.currencies ? country.currencies : ""
-  )[0];
+  const arr = []
 
+  country.languages?.map(language=>{
+         arr.push(language.name)
+         return arr
+  })
+
+  const langus = arr.join(',')
+  
   countries?.map(({ alpha3Code, name }) => {
     return (objects[alpha3Code ? alpha3Code : ""] = name);
   });
+  
   /* eslint-disable */
   useEffect(() => {
     getCountry(countryName);
@@ -48,7 +50,7 @@ const Country = ({ country, getCountry, countries, loading}) => {
             <div className="basis-1/2">
               <p className="pb-2 font-medium">
                 Native Name:{" "}
-                <span className="font-light">{country?.name?.common}</span>
+                <span className="font-light">{country?.nativeName}</span>
               </p>
               <p className="pb-2 font-medium">
                 Population:{" "}
@@ -68,7 +70,7 @@ const Country = ({ country, getCountry, countries, loading}) => {
               <p className="pb-2 font-medium">
                 Capital:{" "}
                 <span className="font-light">
-                  {country?.capital ? country.capital[0] : ""}
+                  {country?.capital ? country.capital : ""}
                 </span>
               </p>
             </div>
@@ -76,17 +78,16 @@ const Country = ({ country, getCountry, countries, loading}) => {
               <p className="pb-2 pt-5 sm:pt-0 font-medium">
                 Top Level Domain:{" "}
                 <span className="font-light">
-                  {country?.tld ? country.tld[0] : ""}
+                  {country?.topLevelDomain ? country.topLevelDomain[0] : ""}
                 </span>
               </p>
               <p className="pb-2 font-medium">
                 Currencies:{" "}
                 <span className="font-light">
-                  {country?.currencies?.[currency]?.name}
+                  {country?.currencies?.[0].name}
                 </span>
               </p>
-              <p className="pb-2 font-medium">
-                Languages: <span className="font-light">{langus}</span>
+              <p className="pb-2 font-medium">Languages: <span className="font-light">{langus}</span>   
               </p>
             </div>
           </div>
